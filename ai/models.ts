@@ -9,17 +9,17 @@ export interface Model {
 
 export const models: Array<Model> = [
   {
-    id: 'gpt-4o-mini',
-    label: 'GPT 4o mini',
-    apiIdentifier: 'gpt-4o-mini',
-    description: 'Small model for fast, lightweight tasks',
+    id: 'deepseek-chat',
+    label: 'DeepSeek Chat',
+    apiIdentifier: 'deepseek-chat',
+    description: 'High-quality general-purpose AI model',
   },
   {
-    id: 'gpt-4o',
-    label: 'GPT 4o',
-    apiIdentifier: 'gpt-4o',
-    description: 'For complex, multi-step tasks',
+    id: 'deepseek-coder',
+    label: 'DeepSeek Coder',
+    apiIdentifier: 'deepseek-coder',
+    description: 'Specialized model for programming tasks',
   },
 ] as const;
 
-export const DEFAULT_MODEL_NAME: string = 'gpt-4o-mini';
+export const DEFAULT_MODEL_NAME: string = 'deepseek-chat';

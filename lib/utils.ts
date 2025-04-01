@@ -244,3 +244,30 @@ export function getMessageIdFromAnnotations(message: Message) {
 
   return annotation.messageIdFromServer;
 }
+
+// Configure DeepSeek API 
+export function configureDeepSeekAPI() {
+  try {
+    console.log('Configuring DeepSeek API...');
+    
+    // Always set DeepSeek API key as the OpenAI API key for compatibility
+    if (process.env.DEEPSEEK_API_KEY) {
+      process.env.OPENAI_API_KEY = process.env.DEEPSEEK_API_KEY;
+      console.log('DeepSeek API key set successfully');
+    } else {
+      console.warn('Warning: DEEPSEEK_API_KEY is not set in environment variables');
+    }
+    
+    // Set the base URL to DeepSeek API
+    process.env.OPENAI_BASE_URL = process.env.OPENAI_BASE_URL || 'https://api.deepseek.com/v1';
+    console.log(`Base URL set to: ${process.env.OPENAI_BASE_URL}`);
+    
+    // Recommended settings for connection stability
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = process.env.NODE_TLS_REJECT_UNAUTHORIZED || '0';
+    process.env.FETCH_KEEPALIVE_ENABLED = process.env.FETCH_KEEPALIVE_ENABLED || '1';
+    
+    console.log('DeepSeek API configured successfully');
+  } catch (error) {
+    console.error('Error configuring DeepSeek API:', error);
+  }
+}

@@ -8,6 +8,9 @@ import {
 } from 'ai';
 import { z } from 'zod';
 
+// Import DeepSeek setup to configure the API
+import '@/lib/deepseek-setup';
+
 import { customModel } from '@/ai';
 import { models } from '@/ai/models';
 import { blocksPrompt, regularPrompt, systemPrompt } from '@/ai/prompts';
